@@ -58,11 +58,13 @@
     "@types/node": "^20.1.7",
     "@vueuse/nuxt": "^10.1.2",
     "eslint": "^8.40.0",
+    "json-editor-vue": "^0.10.6",
     "nuxt": "^3.4.3",
     "nuxt-component-meta": "^0.5.2",
     "nuxt-lodash": "^2.4.1",
     "standard-version": "^9.5.0",
     "unbuild": "^1.2.1",
+    "vanilla-jsoneditor": "^0.17.4",
     "vue-tsc": "1.6.3"
   }
 }

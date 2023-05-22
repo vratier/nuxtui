@@ -10,7 +10,16 @@
           </NuxtLink>
         </div>
 
-        <div class="flex items-center -mr-1.5">
+        <div class="flex items-center -mr-1.">
+          <ClientOnly>
+            <UButton
+              v-if="page.preset"
+              label="Preset"
+              color="white"
+              class="mr-1.5"
+              @click="showSettings = true"
+            />
+          </ClientOnly>
           <div class="mr-1.5 hidden lg:block">
             <ThemeSelect />
           </div>
@@ -86,6 +95,10 @@
         </DialogPanel>
       </Dialog>
     </TransitionRoot>
+
+    <USlideover v-if="page.preset" v-model="showSettings" :overlay="false">
+      <UIConfigEditor :preset="page.preset" />
+    </USlideover>
   </header>
 </template>
 
@@ -94,6 +107,8 @@ import { Dialog, DialogPanel, TransitionRoot } from '@headlessui/vue'
 
 const { isSearchModalOpen } = useDocs()
 const colorMode = useColorMode()
+const showSettings = ref(false)
+const { page } = useContent()
 
 const isDialogOpen = ref(false)
 
